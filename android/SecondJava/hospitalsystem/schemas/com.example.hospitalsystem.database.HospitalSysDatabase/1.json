@@ -1,0 +1,690 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "8a77891b74f17182a76f08b3b62216ce",
+    "entities": [
+      {
+        "tableName": "User",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`userId` TEXT NOT NULL, `password` TEXT, `user_type` INTEGER NOT NULL, PRIMARY KEY(`userId`))",
+        "fields": [
+          {
+            "fieldPath": "userId",
+            "columnName": "userId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "password",
+            "columnName": "password",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "userType",
+            "columnName": "user_type",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "userId"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Patient",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`userId` TEXT NOT NULL, `password` TEXT, `user_type` INTEGER NOT NULL, PRIMARY KEY(`userId`))",
+        "fields": [
+          {
+            "fieldPath": "userId",
+            "columnName": "userId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "password",
+            "columnName": "password",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "userType",
+            "columnName": "user_type",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "userId"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Doctor",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`userId` TEXT NOT NULL, `password` TEXT, `user_type` INTEGER NOT NULL, PRIMARY KEY(`userId`))",
+        "fields": [
+          {
+            "fieldPath": "userId",
+            "columnName": "userId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "password",
+            "columnName": "password",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "userType",
+            "columnName": "user_type",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "userId"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Office",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`office_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT NOT NULL, `intro` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "officeId",
+            "columnName": "office_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "intro",
+            "columnName": "intro",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "office_id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_Office_name",
+            "unique": true,
+            "columnNames": [
+              "name"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_Office_name` ON `${TABLE_NAME}` (`name`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Schedule",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`schedule_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `office_id` INTEGER NOT NULL, `doctor_id` TEXT, `schedule_date` INTEGER NOT NULL, `schedule_period` INTEGER NOT NULL, `appointment_num` INTEGER NOT NULL, FOREIGN KEY(`office_id`) REFERENCES `Office`(`office_id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`doctor_id`) REFERENCES `Doctor`(`userId`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "scheduleId",
+            "columnName": "schedule_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "officeId",
+            "columnName": "office_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "doctorId",
+            "columnName": "doctor_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "scheduleDate",
+            "columnName": "schedule_date",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "schedulePeriod",
+            "columnName": "schedule_period",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "appointmentNum",
+            "columnName": "appointment_num",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "schedule_id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_Schedule_office_id",
+            "unique": false,
+            "columnNames": [
+              "office_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_Schedule_office_id` ON `${TABLE_NAME}` (`office_id`)"
+          },
+          {
+            "name": "index_Schedule_doctor_id",
+            "unique": false,
+            "columnNames": [
+              "doctor_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_Schedule_doctor_id` ON `${TABLE_NAME}` (`doctor_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "Office",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "office_id"
+            ],
+            "referencedColumns": [
+              "office_id"
+            ]
+          },
+          {
+            "table": "Doctor",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "doctor_id"
+            ],
+            "referencedColumns": [
+              "userId"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "appointments",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`appointment_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `patient_id` TEXT, `doctor_id` TEXT, `schedule_id` INTEGER NOT NULL, `visit_date` INTEGER NOT NULL, `visit_period` INTEGER NOT NULL, `serial_num` INTEGER NOT NULL, `order_state` INTEGER NOT NULL, `order_time` INTEGER NOT NULL, FOREIGN KEY(`patient_id`) REFERENCES `Patient`(`userId`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`doctor_id`) REFERENCES `Doctor`(`userId`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`schedule_id`) REFERENCES `Schedule`(`schedule_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "appointmentId",
+            "columnName": "appointment_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "patientId",
+            "columnName": "patient_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "doctorId",
+            "columnName": "doctor_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "scheduleId",
+            "columnName": "schedule_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "visitDate",
+            "columnName": "visit_date",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "visitPeriod",
+            "columnName": "visit_period",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "serialNum",
+            "columnName": "serial_num",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "orderState",
+            "columnName": "order_state",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "orderTime",
+            "columnName": "order_time",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "appointment_id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_appointments_patient_id",
+            "unique": false,
+            "columnNames": [
+              "patient_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_appointments_patient_id` ON `${TABLE_NAME}` (`patient_id`)"
+          },
+          {
+            "name": "index_appointments_doctor_id",
+            "unique": false,
+            "columnNames": [
+              "doctor_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_appointments_doctor_id` ON `${TABLE_NAME}` (`doctor_id`)"
+          },
+          {
+            "name": "index_appointments_schedule_id",
+            "unique": false,
+            "columnNames": [
+              "schedule_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_appointments_schedule_id` ON `${TABLE_NAME}` (`schedule_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "Patient",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "patient_id"
+            ],
+            "referencedColumns": [
+              "userId"
+            ]
+          },
+          {
+            "table": "Doctor",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "doctor_id"
+            ],
+            "referencedColumns": [
+              "userId"
+            ]
+          },
+          {
+            "table": "Schedule",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "schedule_id"
+            ],
+            "referencedColumns": [
+              "schedule_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "doctor_infos",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`doctorInfo_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `doctor_id` TEXT, `office_id` INTEGER NOT NULL, `name` TEXT NOT NULL, `room` TEXT NOT NULL, `gender` INTEGER NOT NULL, `seniority` INTEGER NOT NULL, `intro` TEXT, FOREIGN KEY(`doctor_id`) REFERENCES `Doctor`(`userId`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`office_id`) REFERENCES `Office`(`office_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "doctorInfoId",
+            "columnName": "doctorInfo_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "doctorId",
+            "columnName": "doctor_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "officeId",
+            "columnName": "office_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "room",
+            "columnName": "room",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "gender",
+            "columnName": "gender",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "seniority",
+            "columnName": "seniority",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "intro",
+            "columnName": "intro",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "doctorInfo_id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_doctor_infos_doctor_id",
+            "unique": false,
+            "columnNames": [
+              "doctor_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_doctor_infos_doctor_id` ON `${TABLE_NAME}` (`doctor_id`)"
+          },
+          {
+            "name": "index_doctor_infos_office_id",
+            "unique": false,
+            "columnNames": [
+              "office_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_doctor_infos_office_id` ON `${TABLE_NAME}` (`office_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "Doctor",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "doctor_id"
+            ],
+            "referencedColumns": [
+              "userId"
+            ]
+          },
+          {
+            "table": "Office",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "office_id"
+            ],
+            "referencedColumns": [
+              "office_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "payments",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`payment_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `appointment_id` INTEGER NOT NULL, `payer_id` TEXT, `payment_amount` REAL NOT NULL, `pay_time` INTEGER, FOREIGN KEY(`appointment_id`) REFERENCES `appointments`(`appointment_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "paymentId",
+            "columnName": "payment_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "appointmentId",
+            "columnName": "appointment_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "payerId",
+            "columnName": "payer_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "paymentAmount",
+            "columnName": "payment_amount",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "payTime",
+            "columnName": "pay_time",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "payment_id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_payments_appointment_id",
+            "unique": false,
+            "columnNames": [
+              "appointment_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_payments_appointment_id` ON `${TABLE_NAME}` (`appointment_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "appointments",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "appointment_id"
+            ],
+            "referencedColumns": [
+              "appointment_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "refunds",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`refund_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `payment_id` INTEGER NOT NULL, `refund_time` INTEGER, FOREIGN KEY(`payment_id`) REFERENCES `payments`(`payment_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "refundId",
+            "columnName": "refund_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "paymentId",
+            "columnName": "payment_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "refundTime",
+            "columnName": "refund_time",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "refund_id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_refunds_payment_id",
+            "unique": false,
+            "columnNames": [
+              "payment_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_refunds_payment_id` ON `${TABLE_NAME}` (`payment_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "payments",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "payment_id"
+            ],
+            "referencedColumns": [
+              "payment_id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "comments",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`comment_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `publisher_id` TEXT, `commented_id` TEXT, `publish_time` INTEGER NOT NULL, `comment_text` TEXT NOT NULL, `audit` INTEGER NOT NULL, FOREIGN KEY(`publisher_id`) REFERENCES `Patient`(`userId`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`commented_id`) REFERENCES `Doctor`(`userId`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "commentId",
+            "columnName": "comment_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "publisherId",
+            "columnName": "publisher_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "commentedId",
+            "columnName": "commented_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "publishTime",
+            "columnName": "publish_time",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "commentText",
+            "columnName": "comment_text",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "audit",
+            "columnName": "audit",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "comment_id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_comments_publisher_id",
+            "unique": false,
+            "columnNames": [
+              "publisher_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_comments_publisher_id` ON `${TABLE_NAME}` (`publisher_id`)"
+          },
+          {
+            "name": "index_comments_commented_id",
+            "unique": false,
+            "columnNames": [
+              "commented_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_comments_commented_id` ON `${TABLE_NAME}` (`commented_id`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "Patient",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "publisher_id"
+            ],
+            "referencedColumns": [
+              "userId"
+            ]
+          },
+          {
+            "table": "Doctor",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "commented_id"
+            ],
+            "referencedColumns": [
+              "userId"
+            ]
+          }
+        ]
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '8a77891b74f17182a76f08b3b62216ce')"
+    ]
+  }
+}

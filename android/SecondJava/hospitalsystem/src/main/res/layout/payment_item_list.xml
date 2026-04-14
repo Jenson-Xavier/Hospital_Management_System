@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="110dp"
+    android:orientation="horizontal"
+    android:id="@+id/payment_item_list">
+
+    <ImageView
+        android:id="@+id/iv_appointment"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:scaleType="fitCenter"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_payment" />
+
+    <LinearLayout
+        android:id="@+id/ll_period_remain"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_centerVertical="true"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_payTime_hint"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="支付时间:"
+                android:textStyle="bold"
+                android:textColor="@color/RoyalBlue"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_payTime"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="2024-10-01 18:00:00"
+                android:textColor="#aaaaaa"
+                android:textStyle="bold"
+                android:textSize="16sp" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:id="@+id/tv_office_hint"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="就诊科室:"
+                android:textStyle="bold"
+                android:textColor="@color/RoyalBlue"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_office"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="儿科"
+                android:textColor="#aaaaaa"
+                android:textStyle="bold"
+                android:textSize="16sp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:id="@+id/tv_payAmount_hint"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="缴费金额:"
+                android:textStyle="bold"
+                android:textColor="@color/RoyalBlue"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_payAmount"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="center_vertical"
+                android:text="20"
+                android:textColor="#aaaaaa"
+                android:textStyle="bold"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <android.widget.Button
+        android:id="@+id/btn_view_payment"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:text="查看"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        android:textColor="@color/white"
+        android:background="@drawable/btn_rect_2"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp" />
+
+
+</RelativeLayout>

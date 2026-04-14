@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+<!--    <fragment-->
+<!--        android:id="@+id/nav_index_fregment"-->
+<!--        android:name="com.example.hospitalsystem.IndexFragment"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        app:defaultNavHost="true"-->
+<!--        android:layout_weight="1"/>-->
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+
+    <!-- 底部导航栏 -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_alignParentBottom="true"
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/MintCream"
+        app:labelVisibilityMode="labeled"
+        app:itemIconTint="@drawable/selector_nv_bottom"
+        app:itemTextColor="@drawable/selector_nv_bottom"
+        app:itemBackground="@color/MintCream"
+        app:itemRippleColor="@color/Azure"
+        app:itemTextAppearanceActive="@dimen/design_bottom_navigation_active_text_size"
+        app:itemTextAppearanceInactive="@dimen/design_bottom_navigation_text_size"
+        app:menu="@menu/index_menu" />
+
+</LinearLayout>

@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="140dp"
+    android:orientation="horizontal"
+    android:id="@+id/appointment_del_item_list">
+
+    <ImageView
+        android:id="@+id/iv_appointment"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:scaleType="fitCenter"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_appointment" />
+
+    <LinearLayout
+        android:id="@+id/ll_period_remain"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_centerVertical="true"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_doctor_hint"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="预约医生:"
+                android:textStyle="bold"
+                android:textColor="@color/RoyalBlue"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_doctor"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="张伟"
+                android:textColor="#aaaaaa"
+                android:textStyle="bold"
+                android:textSize="16sp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_office_hint"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="就诊科室:"
+                android:textStyle="bold"
+                android:textColor="@color/RoyalBlue"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_office"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="center_vertical"
+                android:text="内科"
+                android:textColor="#aaaaaa"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_date_hint"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="就诊日期:"
+                android:textStyle="bold"
+                android:textColor="@color/RoyalBlue"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="2024-10-01"
+                android:textColor="#aaaaaa"
+                android:textStyle="bold"
+                android:textSize="16sp" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_period_hint"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="就诊时段:"
+                android:textStyle="bold"
+                android:textColor="@color/RoyalBlue"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_period"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="18:00-19:00"
+                android:textColor="#aaaaaa"
+                android:textStyle="bold"
+                android:textSize="16sp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_payAmount_hint"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="缴费金额:"
+                android:textStyle="bold"
+                android:textColor="@color/RoyalBlue"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_payAmount"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="center_vertical"
+                android:text="20"
+                android:textColor="#aaaaaa"
+                android:textStyle="bold"
+                android:textSize="16sp" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:text="待生效"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/black" />
+
+
+
+    <android.widget.Button
+        android:id="@+id/btn_del_appoint"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:text="取消预约"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        android:textColor="@color/white"
+        android:background="@drawable/btn_rect_2"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp" />
+
+
+</RelativeLayout>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".DoctorFindFragment"
+    android:layout_marginTop="30dp">
+
+    <include layout="@layout/top_back_bar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/Snow3">
+
+        <TextView
+            android:id="@+id/tv_office"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:gravity="left"
+            android:text="科室名称"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="40dp">
+
+            <Spinner
+                android:id="@+id/sp_office"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:textSize="18sp"
+                android:background="@drawable/edittext_selector"
+                android:spinnerMode="dialog" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/Snow3">
+
+        <TextView
+            android:id="@+id/tv_doctor"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:padding="12dp"
+            android:gravity="left"
+            android:text="医生姓名"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="40dp">
+
+            <EditText
+                android:id="@+id/et_doctor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="请输入医生姓名"
+                android:clickable="true"
+                android:focusable="true"
+                android:textSize="18sp"
+                android:background="@drawable/edittext_selector"
+                android:imeOptions="actionSearch"
+                android:singleLine="true"/>
+
+            <ImageView
+                android:id="@+id/iv_doctor_search"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_alignRight="@+id/et_doctor"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_office_search" />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/tv_nomatch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="16dp"
+        android:textSize="18sp"
+        android:text="找不到符合条件的医生"
+        android:textColor="@color/black"
+        android:background="@color/Azure"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+
+    <ListView
+        android:id="@+id/lv_doctorInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

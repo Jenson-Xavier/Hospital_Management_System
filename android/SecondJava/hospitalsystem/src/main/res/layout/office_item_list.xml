@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:orientation="horizontal"
+    android:id="@+id/office_item_list"
+    android:descendantFocusability="blocksDescendants">
+
+    <TextView
+        android:id="@+id/tv_office_name"
+        android:layout_width="0dp"
+        android:layout_weight="4"
+        android:layout_height="match_parent"
+        android:gravity="left|center_vertical"
+        android:text="内科"
+        android:textSize="17dp"
+        android:textColor="@color/black" />
+
+    <android.widget.Button
+        android:id="@+id/btn_office_intro"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:background="@color/Azure"
+        android:text="介绍"
+        android:textColor="@color/RoyalBlue"
+        android:textStyle="bold"
+        android:textSize="18sp" />
+
+
+</LinearLayout>

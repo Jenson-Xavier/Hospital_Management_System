@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    android:orientation="horizontal"
+    android:id="@+id/schedule_item_list">
+
+    <ImageView
+        android:id="@+id/iv_doctor_avatar"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:scaleType="fitCenter"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_doctor_avatar" />
+
+    <LinearLayout
+        android:id="@+id/ll_period_remain"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:padding="3dp">
+
+            <TextView
+                android:id="@+id/tv_doctor_name"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:gravity="left"
+                android:text="林一丹"
+                android:textSize="17sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"/>
+
+            <android.widget.Button
+                android:id="@+id/btn_doctor_intro"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="match_parent"
+                android:layout_marginRight="50dp"
+                android:text="介绍"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:textColor="@color/white"
+                android:background="@drawable/btn_rect" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_period_hint"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="就诊时间:"
+                android:textStyle="bold"
+                android:textColor="@color/RoyalBlue"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_period"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="18:00-19:00"
+                android:textColor="#aaaaaa"
+                android:textStyle="bold"
+                android:textSize="16sp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_remain_hint"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="号量余额:"
+                android:textStyle="bold"
+                android:textColor="@color/RoyalBlue"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_remain"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:gravity="center_vertical"
+                android:text="79"
+                android:textColor="#aaaaaa"
+                android:textStyle="bold"
+                android:textSize="16sp" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="260dp"
+        android:layout_marginTop="3dp"
+        android:layout_alignParentTop="true">
+
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="2024-10-01"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+
+    <android.widget.Button
+        android:id="@+id/btn_appoint"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:text="预约"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        android:textColor="@color/white"
+        android:background="@drawable/btn_rect_2"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp" />
+
+
+</RelativeLayout>

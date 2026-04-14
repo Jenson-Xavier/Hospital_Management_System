@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="grey">#BEBEBE</color>
+    <color name="RoyalBlue">#4169E1</color>
+    <color name="nv_color">#94BFFF</color>
+    <color name="MintCream">#F5FFFA</color>
+    <color name="Azure">#F0FFFF</color>
+    <color name="Snow3">#CDC9C9</color>
+    <color name="MediumAquamarine">#66CDAA</color>
+    <color name="CadetBlue">#5F9EA0</color>
+    <color name="SlateGrey">#708090</color>
+
+</resources>
